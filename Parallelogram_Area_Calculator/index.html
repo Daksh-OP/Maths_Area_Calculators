@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <head>
+    <title>Maths Area Calculators</title>
+    <style>
+      /* Basic page styling */
+      body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; }
+      h1 { text-align: center; }
+      section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+      img { display: block; margin: 10px auto; max-width: 100%; height: auto; }
+      input { width: 80px; margin: 5px; }
+      button { margin-top: 10px; }
+    </style>
+  </head>
+  <body>
+    <h1>Maths Area Calculators</h1>
+
+    <!-- Parallelogram Calculator -->
+    <section>
+      <h2>Parallelogram Area Calculator</h2>
+      <!-- Image of a parallelogram -->
+      <img src="images/Parallelogram_Area_Image.png" alt="Parallelogram Image">
+
+      Base: <input type="text" id="paraBase"> Height: <input type="text" id="paraHeight">
+      <br>
+      <button onclick="calcParallelogram()">Calculate Area</button>
+      <p>Area: <span id="paraResult"></span></p>
+    </section>
+
+    <!-- Trapezium Calculator -->
+    <section>
+      <h2>Trapezium Area Calculator</h2>
+      <img src="images/Trapezium_Area_Image.png" alt="Trapezium Image">
+
+      Base 1: <input type="text" id="trapA"> Base 2: <input type="text" id="trapB"> Height: <input type="text" id="trapH">
+      <br>
+      <button onclick="calcTrapezium()">Calculate Area</button>
+      <p>Area: <span id="trapResult"></span></p>
+    </section>
+
+    <!-- Circle Calculator -->
+    <section>
+      <h2>Circle Area Calculator</h2>
+      <img src="images/Circle_Area_Image.png" alt="Circle Image">
+
+      Radius: <input type="text" id="circleR">
+      <br>
+      <button onclick="calcCircle()">Calculate Area</button>
+      <p>Area: <span id="circleResult"></span></p>
+    </section>
+
+    <!-- Triangle (Heron's Formula) -->
+    <section>
+      <h2>Triangle Area Calculator (Heron's Formula)</h2>
+      <img src="images/Triangle_Area_Image.png" alt="Triangle Image">
+
+      Side a: <input type="text" id="triA"> Side b: <input type="text" id="triB"> Side c: <input type="text" id="triC">
+      <br>
+      <button onclick="calcTriangle()">Calculate Area</button>
+      <p>Area: <span id="triResult"></span></p>
+    </section>
+
+    <!-- Custom Calculator (Square) -->
+    <section>
+      <h2>Square Area Calculator</h2>
+      <img src="images/Square_Area_Image.png" alt="Square Image">
+
+      Side: <input type="text" id="squareSide">
+      <br>
+      <button onclick="calcSquare()">Calculate Area</button>
+      <p>Area: <span id="squareResult"></span></p>
+    </section>
+
+    <script>
+      // Function to calculate Parallelogram area
+      function calcParallelogram() {
+        var base = parseFloat(document.getElementById("paraBase").value);
+        var height = parseFloat(document.getElementById("paraHeight").value);
+        var area = base * height;
+        document.getElementById("paraResult").innerHTML = area;
+      }
+
+      // Function to calculate Trapezium area
+      function calcTrapezium() {
+        var a = parseFloat(document.getElementById("trapA").value);
+        var b = parseFloat(document.getElementById("trapB").value);
+        var h = parseFloat(document.getElementById("trapH").value);
+        var area = ((a + b) / 2) * h;
+        document.getElementById("trapResult").innerHTML = area;
+      }
+
+      // Function to calculate Circle area
+      function calcCircle() {
+        var r = parseFloat(document.getElementById("circleR").value);
+        var area = Math.PI * r * r;
+        document.getElementById("circleResult").innerHTML = area.toFixed(2);
+      }
+
+      // Function to calculate Triangle area using Heron's formula
+      function calcTriangle() {
+        var a = parseFloat(document.getElementById("triA").value);
+        var b = parseFloat(document.getElementById("triB").value);
+        var c = parseFloat(document.getElementById("triC").value);
+        var s = (a + b + c) / 2;
+        var area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+        document.getElementById("triResult").innerHTML = area.toFixed(2);
+      }
+
+      // Function to calculate Square area
+      function calcSquare() {
+        var side = parseFloat(document.getElementById("squareSide").value);
+        var area = side * side;
+        document.getElementById("squareResult").innerHTML = area;
+      }
+    </script>
+  </body>
+</html>
